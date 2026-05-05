@@ -68,10 +68,26 @@ const logout = async (req, res, next) => {
   try {
     const token = req.token;
 
-    req.user.tokens = 
+    req.user.tokens = req.user.tokens.filter((t) => {
+      return t.token !== token;
+    });
+
+    await req.user.save();
+
+    res
+      .status(200)
+      .json({ success: true, message: "User logout successfully" });
   } catch (error) {
     next(new HttpError(error.message, 500));
   }
 };
 
-export default { register, login, authLogin };
+const logoutAll = async (req, res, next) => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
+export default { register, login, authLogin, logout, logoutAll };
