@@ -84,10 +84,18 @@ const logout = async (req, res, next) => {
 
 const logoutAll = async (req, res, next) => {
   try {
-    
+    req.user.tokens = [];
+
+    await req.user.save();
+
+    res
+      .status(200)
+      .json({ success: true, message: "User Logout from all device" });
   } catch (error) {
-    
+    next(new HttpError(error.message, 500));
   }
-}
+};
+
+
 
 export default { register, login, authLogin, logout, logoutAll };
