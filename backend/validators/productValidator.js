@@ -45,4 +45,6 @@ export const createProductSchema = productBaseSchema.fork(
   (field) => field.required(),
 );
 
-export default { productBaseSchema, createProductSchema };
+export const updateProductSchema = productBaseSchema;
+
+export default { productBaseSchema, createProductSchema, updateProductSchema };

@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema(
   {
@@ -21,10 +23,18 @@ const userSchema = new mongoose.Schema(
       minlength: 6,
     },
     phone: {
-      type: String,
+      type: Number,
       required: true,
       match: [/^[0-9]{10}$/, "Please use a valid 10-digit phone number"],
     },
+    tokens: [
+      {
+        token: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
   },
   { timestamps: true },
 );
@@ -34,6 +44,45 @@ userSchema.pre("save", async function () {
     this.password = await bcrypt.hash(this.password, 8);
   }
 });
+
+userSchema.statics.findByCredentials = async function (email, password) {
+  try {
+    const user = await this.findOne({ email });
+
+    if (!user) {
+      return null;
+    }
+
+    const isMatched = await bcrypt.compare(password, user.password);
+
+    if (!isMatched) {
+      return null;
+    }
+
+    return user;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+userSchema.methods.generateAuthToken = async function () {
+  try {
+    const user = this;
+
+    const token = jwt.sign(
+      { _id: user._id.toString() },
+      process.env.JWT_SECRET,
+    );
+
+    user.tokens = user.tokens.concat({ token });
+
+    await user.save();
+
+    return token;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
 
 const User = mongoose.model("User", userSchema);
 
