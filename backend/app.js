@@ -2,8 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config({ path: "./.env" });
 
-import HttpError from "./middlewares/HttpError.js";
 import connectDB from "./config/db.js";
+import HttpError from "./middlewares/HttpError.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";

@@ -32,6 +32,9 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    cloudinaryId: {
+      type: String,
+    },
     status: {
       type: String,
       enum: ["Active", "Inactive"],

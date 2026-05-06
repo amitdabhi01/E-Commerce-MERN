@@ -3,20 +3,23 @@ import User from "../model/User.js";
 
 const register = async (req, res, next) => {
   try {
-    const { name, email, password, phone } = req.body;
-
-    const newUser = new User({
-      name,
-      email,
-      password,
-      phone,
-    });
+    const { name, email, password, phone, role } = req.body;
 
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       return next(new HttpError("User already exist", 400));
     }
+
+    const newUser = new User({
+      name,
+      email,
+      password,
+      phone,
+      role,
+      imageURL: req.file ? req.file.path : "undefined",
+      cloudinaryId: req.file ? req.file.filename : "undefined",
+    });
 
     await newUser.save();
 
@@ -96,6 +99,74 @@ const logoutAll = async (req, res, next) => {
   }
 };
 
+const update = async (req, res, next) => {
+  try {
+    const targetUser = req.params.id || req.user._id;
 
+    const user = await User.findById(targetUser);
 
-export default { register, login, authLogin, logout, logoutAll };
+    if (!user) {
+      return next(new HttpError("User not found", 404));
+    }
+
+    const update = Object.keys(req.body);
+
+    let allowedFields = ["name", "password", "phone"];
+
+    const isValid = update.every((fields) => allowedFields.includes(fields));
+
+    if (
+      !req.user.role == "admin" &&
+      !req.user._id.toString() !== user._id.toString()
+    ) {
+      return next(new HttpError("Unauthorized access", 401));
+    }
+
+    update.forEach((update) => (user[update] = req.body[update]));
+
+    await user.save();
+
+    res
+      .status(200)
+      .json({ success: true, message: "User update successfully", user });
+  } catch (error) {
+    next(new HttpError(error.message, 500));
+  }
+};
+
+const deleteUser = async (req, res, next) => {
+  try {
+    const targetUser = req.params.id || req.user._id;
+
+    const user = await User.findById(targetUser);
+
+    if (!user) {
+      return next(new HttpError("User not found", 404));
+    }
+
+    if (
+      !req.user.role === "admin" &&
+      !req.user._id.toString() !== user._id.toString()
+    ) {
+      return next(new HttpError("Unauthorized access", 401));
+    }
+
+    await User.deleteOne(user);
+
+    res
+      .status(200)
+      .json({ success: true, message: "User deleted successfully" });
+  } catch (error) {
+    next(new HttpError(error.message, 500));
+  }
+};
+
+export default {
+  register,
+  login,
+  authLogin,
+  logout,
+  logoutAll,
+  update,
+  deleteUser,
+};
