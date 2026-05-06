@@ -39,7 +39,7 @@ const create = async (req, res, next) => {
     res.status(201).json({
       success: true,
       message: "New product added successfully",
-      data: newProduct,
+      newProduct,
     });
   } catch (error) {
     next(new HttpError(error.message, 500));

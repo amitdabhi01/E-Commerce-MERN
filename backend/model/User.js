@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema(
       required: true,
       match: [/^[0-9]{10}$/, "Please use a valid 10-digit phone number"],
     },
+    role: {
+      type: String,
+      enum: ["customer", "admin"],
+      default: "customer",
+    },
     tokens: [
       {
         token: {
@@ -40,7 +45,7 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function () {
-  if (this.isModified) {
+  if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 8);
   }
 });
@@ -50,13 +55,13 @@ userSchema.statics.findByCredentials = async function (email, password) {
     const user = await this.findOne({ email });
 
     if (!user) {
-      return null;
+      throw new Error("Invalid email and password");
     }
 
     const isMatched = await bcrypt.compare(password, user.password);
 
     if (!isMatched) {
-      return null;
+      throw new Error("Invalid email and password");
     }
 
     return user;
@@ -82,6 +87,19 @@ userSchema.methods.generateAuthToken = async function () {
   } catch (error) {
     throw new Error(error.message);
   }
+};
+
+userSchema.methods.toJSON = function () {
+  const user = this;
+  const userObject = user.toObject();
+
+  delete userObject.password;
+  delete userObject.createdAt;
+  delete userObject.updatedAt;
+  delete userObject.__v;
+  delete userObject.tokens;
+
+  return userObject;
 };
 
 const User = mongoose.model("User", userSchema);
