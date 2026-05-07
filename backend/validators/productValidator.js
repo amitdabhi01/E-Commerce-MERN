@@ -30,18 +30,13 @@ const productBaseSchema = Joi.object({
     "number.min": "Stock cannot be negative",
   }),
 
-  imageURL: Joi.string().uri().messages({
-    "string.base": "Image URL must be a string",
-    "string.uri": "Image URL must be a valid URL",
-  }),
-
   status: Joi.string().valid("Active", "Inactive").messages({
     "any.only": "Status must be either Active or Inactive",
   }),
 });
 
 export const createProductSchema = productBaseSchema.fork(
-  ["title", "description", "price", "category", "stock", "imageURL"],
+  ["title", "description", "price", "category", "stock"],
   (field) => field.required(),
 );
 

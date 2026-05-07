@@ -6,15 +6,14 @@ import connectDB from "./config/db.js";
 import HttpError from "./middlewares/HttpError.js";
 import userRoutes from "./routes/userRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
-import adminRoutes from "./routes/adminRoutes.js";
 
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/user", userRoutes);
 app.use("/product", productRoutes);
-app.use("/admin", adminRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).json("Hello from server 🚀");

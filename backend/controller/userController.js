@@ -17,8 +17,6 @@ const register = async (req, res, next) => {
       password,
       phone,
       role,
-      imageURL: req.file ? req.file.path : "undefined",
-      cloudinaryId: req.file ? req.file.filename : "undefined",
     });
 
     await newUser.save();
