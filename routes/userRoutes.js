@@ -1,7 +1,6 @@
 import express from "express";
 
 import userController from "../controller/userController.js";
-import uploads from "../middlewares/uploads.js";
 import validate from "../middlewares/Validate.js";
 import {
   createUserSchema,
@@ -14,7 +13,6 @@ const router = express.Router();
 
 router.post(
   "/register",
-  uploads.single("imageURL"),
   validate(createUserSchema),
   userController.register,
 );
