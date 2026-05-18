@@ -1,9 +1,12 @@
 import React from "react";
+
 import { Card, Button, Container } from "react-bootstrap";
 
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = () => {
+function ProductCard({ product }) {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Card className="h-100 shadow-sm">
@@ -28,6 +31,6 @@ const ProductCard = () => {
       </Card>
     </Container>
   );
-};
+}
 
 export default ProductCard;
