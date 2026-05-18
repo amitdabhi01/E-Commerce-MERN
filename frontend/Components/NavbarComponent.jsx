@@ -3,8 +3,16 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 
 import { Link, useNavigate } from "react-router-dom";
 
-function NavbarComponent(){
-    
+function NavbarComponent() {
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+
+    navigate("/login");
+  };
 }
 
 const NavbarComponent = () => {
