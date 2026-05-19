@@ -7,6 +7,9 @@ import Home from "../Pages/Home.jsx";
 import Login from "../Pages/Login.jsx";
 import Register from "../Pages/Register.jsx";
 import ProductDetails from "../Pages/ProductDetails.jsx";
+import ProtectedRoute from "../Components/ProtectedRoutes.jsx";
+import AdminDashboard from "../Pages/AdminDashboard.jsx";
+import AddProduct from "../Pages/AddProduct.jsx";
 
 const App = () => {
   return (
@@ -21,6 +24,24 @@ const App = () => {
         <Route path="/register" element={<Register />} />
 
         <Route path="/product/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="add-product"
+          element={
+            <ProtectedRoute>
+              <AddProduct />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
