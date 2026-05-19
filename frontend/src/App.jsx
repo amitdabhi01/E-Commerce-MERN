@@ -5,6 +5,8 @@ import NavbarComponent from "../Components/NavbarComponent";
 
 import Home from "../Pages/Home.jsx";
 import Login from "../Pages/Login.jsx";
+import Register from "../Pages/Register.jsx";
+
 
 const App = () => {
   return (
@@ -16,7 +18,7 @@ const App = () => {
 
         <Route path="/login" element={<Login/>}></Route>
 
-        <Route path="/login"></Route>
+        <Route path="/register" element={<Register/>}></Route>
       </Routes>
     </BrowserRouter>
   );
