@@ -21,7 +21,7 @@ const addToCart = async (req, res, next) => {
       return next(new HttpError("Product out of stock", 400));
     }
 
-    let cartItem = new Cart.findOne({
+    let cartItem = await Cart.findOne({
       user: req.user._id,
       product: productId,
     });
