@@ -17,7 +17,7 @@ const Home = () => {
     try {
       const res = await API.get("/product/getAll");
 
-      console.log(res.data);
+      // console.log(res.data);
 
       setProducts(res.data.products);
     } catch (error) {
