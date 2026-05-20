@@ -14,7 +14,7 @@ function NavbarComponent() {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="mb-5">
       <Container>
         <Navbar.Brand as={Link} to="/">
           MERN Shop

@@ -8,7 +8,7 @@ function ProductCard({ product }) {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container className="mt-5">
       <Card className="h-100 shadow-sm">
         <Card.Img
           variant="top"

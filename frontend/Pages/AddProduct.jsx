@@ -59,7 +59,7 @@ function AddProduct() {
   };
 
   return (
-    <Container className="mt-5 d-flex justify-content-center">
+    <Container className="mt-5 d-flex justify-content-center pt-5">
       <Card className="p-4 shadow" style={{ width: "600px" }}>
         <h2 className="mb-4">Add Product</h2>
 

@@ -25,7 +25,7 @@ const Home = () => {
     }
   };
   return (
-    <Container className="mt-4">
+    <Container className="mt-5">
       <Row>
         {products.map((product) => (
           <Col md={4} key={product._id} className="mb-4">

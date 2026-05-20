@@ -30,6 +30,14 @@ function UpdateProduct() {
     try {
       const res = await API.get(`product/${id}`);
 
+      setFormData({
+        title: res.data.product.title || "",
+        description: res.data.product.description || "",
+        price: res.data.product.price || "",
+        category: res.data.product.category || "",
+        stock: res.data.product.stock || "",
+      });
+
       setFormData(res.data.product);
     } catch (error) {
       console.log(error);
@@ -57,9 +65,9 @@ function UpdateProduct() {
     }
 
     try {
-      await API.patch(`/product/update/${id}`, data);
+      const res = await API.patch(`/product/update/${id}`, data)
 
-      alert("Product Updated");
+      alert("Product Updated Successfully");
 
       navigate("/admin");
     } catch (error) {
