@@ -1,0 +1,2540 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap");
+
+/* HERE IS FOR NAVBAR */
+.premium-navbar {
+  background: rgba(10, 10, 15, 0.92) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196, 160, 80, 0.2);
+  padding: 0 !important;
+  transition: all 0.3s ease;
+}
+
+.premium-navbar .container {
+  padding: 0.85rem 1.5rem;
+}
+
+.brand-logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #f0e6c8 !important;
+  letter-spacing: 0.04em;
+  text-decoration: none !important;
+  transition: opacity 0.2s;
+}
+
+.brand-logo:hover {
+  opacity: 0.85;
+}
+
+.logo-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a0a0f;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(196, 160, 80, 0.35);
+}
+
+.brand-highlight {
+  color: #c4a050;
+}
+
+.nav-link-custom {
+  font-family: "Jost", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 200, 0.7) !important;
+  padding: 0.45rem 0.9rem !important;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+  position: relative;
+}
+
+.nav-link-custom:hover {
+  color: #c4a050 !important;
+  background: rgba(196, 160, 80, 0.08);
+}
+
+.nav-link-custom.active-nav {
+  color: #c4a050 !important;
+  background: rgba(196, 160, 80, 0.1);
+}
+
+.nav-link-custom.active-nav::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: #c4a050;
+  border-radius: 2px;
+}
+
+.nav-icon {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.btn-register {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #c4a050, #e8c97a) !important;
+  border: none !important;
+  color: #0a0a0f !important;
+  padding: 0.48rem 1.2rem !important;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s;
+  box-shadow: 0 0 14px rgba(196, 160, 80, 0.3);
+  text-decoration: none;
+}
+
+.btn-register:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(196, 160, 80, 0.4);
+  color: #0a0a0f !important;
+}
+
+.btn-logout {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent !important;
+  border: 1px solid rgba(196, 160, 80, 0.4) !important;
+  color: rgba(196, 160, 80, 0.85) !important;
+  padding: 0.44rem 1.1rem !important;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+  background: rgba(196, 160, 80, 0.1) !important;
+  border-color: #c4a050 !important;
+  color: #c4a050 !important;
+}
+
+.navbar-toggle {
+  border: 1px solid rgba(196, 160, 80, 0.35) !important;
+  padding: 0.3rem 0.55rem;
+}
+
+.navbar-toggle:focus {
+  box-shadow: none !important;
+}
+
+.navbar-toggle .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(196,160,80,0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(10, 10, 15, 0.98);
+    border-top: 1px solid rgba(196, 160, 80, 0.15);
+    padding: 1rem 0.5rem 1.25rem;
+    margin-top: 0.5rem;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .nav-link-custom.active-nav::after {
+    display: none;
+  }
+
+  .btn-register,
+  .btn-logout {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
+
+/* HERE IS CSS FOR CARD */
+.luxury-card {
+  background: #0f0f14;
+  border: 1px solid rgba(196, 160, 80, 0.15) !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(196, 160, 80, 0.45) !important;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(196, 160, 80, 0.08);
+}
+
+.card-img-container {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  background: #080810;
+}
+
+.card-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.luxury-card:hover .card-product-img {
+  transform: scale(1.06);
+}
+
+.img-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(10, 10, 15, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+.card-badge-trending {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  color: #0a0a0f;
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 0 12px rgba(196, 160, 80, 0.35);
+}
+
+.card-body-luxury {
+  background: #0f0f14;
+  padding: 1.4rem 1.4rem 1.2rem !important;
+  border-top: 1px solid rgba(196, 160, 80, 0.1);
+}
+
+.card-category-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.65);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.card-product-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f0e6c8;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  letter-spacing: 0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.card-product-price {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #c4a050;
+  letter-spacing: 0.01em;
+}
+
+.in-stock-badge {
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.btn-view-details {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(196, 160, 80, 0.35) !important;
+  background: transparent !important;
+  color: rgba(196, 160, 80, 0.85) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.btn-view-details:hover {
+  background: linear-gradient(135deg, #c4a050, #e8c97a) !important;
+  border-color: transparent !important;
+  color: #0a0a0f !important;
+  box-shadow: 0 6px 20px rgba(196, 160, 80, 0.3);
+  transform: translateY(-1px);
+}
+
+/* HERE IS CSS FOR HOME PAGE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #08080f !important;
+}
+
+/* ─── HERO ─── */
+.hero-luxury {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  background: #08080f;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero-luxury::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 160, 80, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.hero-luxury::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 160, 80, 0.3),
+    transparent
+  );
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 80, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 80, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 0 4rem;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c4a050;
+  background: rgba(196, 160, 80, 0.08);
+  border: 1px solid rgba(196, 160, 80, 0.25);
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 1.8rem;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  color: #f0e6c8;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.4rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: #c4a050;
+}
+
+.hero-subtitle {
+  font-family: "Jost", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(240, 230, 200, 0.5);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c4a050, transparent);
+  margin: 0 auto;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #c4a050;
+  display: block;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 200, 0.4);
+  display: block;
+  margin-top: 4px;
+}
+
+.hero-stat-sep {
+  width: 1px;
+  height: 40px;
+  background: rgba(196, 160, 80, 0.2);
+}
+
+/* ─── PRODUCTS SECTION ─── */
+.products-section {
+  background: #08080f;
+  padding: 5rem 0 6rem;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c4a050;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.7rem;
+}
+
+.section-label::before,
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(196, 160, 80, 0.2);
+  max-width: 40px;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: #f0e6c8;
+  letter-spacing: -0.01em;
+  margin-bottom: 0;
+}
+
+.product-count-badge {
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(196, 160, 80, 0.6);
+  background: rgba(196, 160, 80, 0.08);
+  border: 1px solid rgba(196, 160, 80, 0.2);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+/* ─── LOADING ─── */
+.loading-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 5rem 0;
+}
+
+.spinner-border {
+  width: 2rem !important;
+  height: 2rem !important;
+  border-width: 2px !important;
+  color: #c4a050 !important;
+}
+
+.loading-text {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.5);
+}
+
+/* ─── EMPTY STATE ─── */
+.empty-state {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.empty-icon {
+  color: rgba(196, 160, 80, 0.25);
+  margin-bottom: 1rem;
+}
+
+.empty-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgba(240, 230, 200, 0.5);
+}
+
+/* ─── SCROLL ANIMATION ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.fade-up:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.fade-up:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.fade-up:nth-child(3) {
+  animation-delay: 0.25s;
+}
+.fade-up:nth-child(4) {
+  animation-delay: 0.1s;
+}
+.fade-up:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.fade-up:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HERE IS CSS FOR LOGIN PAGE */
+.auth-page-luxury {
+  min-height: 100vh;
+  background: #08080f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1rem;
+}
+
+.auth-page-luxury::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 160, 80, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.auth-page-luxury::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 160, 80, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.auth-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 80, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 80, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.auth-card-luxury {
+  background: rgba(15, 15, 20, 0.95) !important;
+  border: 1px solid rgba(196, 160, 80, 0.2) !important;
+  border-radius: 18px !important;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(196, 160, 80, 0.05);
+}
+
+.auth-card-luxury::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 160, 80, 0.6),
+    transparent
+  );
+}
+
+.auth-logo-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a0a0f;
+  font-size: 1.3rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 20px rgba(196, 160, 80, 0.35);
+}
+
+.auth-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0e6c8;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.auth-heading em {
+  font-style: italic;
+  color: #c4a050;
+}
+
+.auth-subheading {
+  font-family: "Jost", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(240, 230, 200, 0.4);
+  margin-bottom: 0;
+}
+
+.auth-divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c4a050, transparent);
+  margin: 1.4rem auto;
+}
+
+.auth-label-luxury {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(196, 160, 80, 0.4);
+  font-size: 0.85rem;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.auth-input-luxury {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(196, 160, 80, 0.2) !important;
+  border-radius: 8px !important;
+  color: #f0e6c8 !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  padding: 0.7rem 1rem 0.7rem 2.6rem !important;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.auth-input-luxury::placeholder {
+  color: rgba(240, 230, 200, 0.2) !important;
+  font-weight: 300;
+}
+
+.auth-input-luxury:focus {
+  background: rgba(196, 160, 80, 0.04) !important;
+  border-color: rgba(196, 160, 80, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(196, 160, 80, 0.08) !important;
+  color: #f0e6c8 !important;
+  outline: none;
+}
+
+.auth-submit-btn {
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #c4a050, #e8c97a) !important;
+  border: none !important;
+  color: #0a0a0f !important;
+  padding: 0.75rem !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition:
+    opacity 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s !important;
+  box-shadow: 0 0 20px rgba(196, 160, 80, 0.25) !important;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 24px rgba(196, 160, 80, 0.4) !important;
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.6 !important;
+}
+
+.auth-footer-text-luxury {
+  font-family: "Jost", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(240, 230, 200, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.auth-link-luxury {
+  color: #c4a050 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.auth-link-luxury:hover {
+  opacity: 0.75;
+  text-decoration: underline !important;
+}
+
+/* HERE IS CSS FOR REGISTER */
+.auth-page-luxury {
+  min-height: 100vh;
+  background: #08080f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1rem;
+}
+
+.auth-page-luxury::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 160, 80, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.auth-page-luxury::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 160, 80, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.auth-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 80, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 80, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.auth-card-luxury {
+  background: rgba(15, 15, 20, 0.95) !important;
+  border: 1px solid rgba(196, 160, 80, 0.2) !important;
+  border-radius: 18px !important;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(196, 160, 80, 0.05);
+}
+
+.auth-card-luxury::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 160, 80, 0.6),
+    transparent
+  );
+}
+
+.auth-logo-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a0a0f;
+  font-size: 1.3rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 20px rgba(196, 160, 80, 0.35);
+}
+
+.auth-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0e6c8;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.auth-heading em {
+  font-style: italic;
+  color: #c4a050;
+}
+
+.auth-subheading {
+  font-family: "Jost", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(240, 230, 200, 0.4);
+  margin-bottom: 0;
+}
+
+.auth-divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c4a050, transparent);
+  margin: 1.4rem auto;
+}
+
+.auth-label-luxury {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(196, 160, 80, 0.4);
+  font-size: 0.85rem;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.auth-input-luxury {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(196, 160, 80, 0.2) !important;
+  border-radius: 8px !important;
+  color: #f0e6c8 !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  padding: 0.7rem 1rem 0.7rem 2.6rem !important;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.auth-input-luxury::placeholder {
+  color: rgba(240, 230, 200, 0.2) !important;
+  font-weight: 300;
+}
+
+.auth-input-luxury:focus {
+  background: rgba(196, 160, 80, 0.04) !important;
+  border-color: rgba(196, 160, 80, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(196, 160, 80, 0.08) !important;
+  color: #f0e6c8 !important;
+  outline: none;
+}
+
+.auth-submit-btn {
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #c4a050, #e8c97a) !important;
+  border: none !important;
+  color: #0a0a0f !important;
+  padding: 0.75rem !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition:
+    opacity 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s !important;
+  box-shadow: 0 0 20px rgba(196, 160, 80, 0.25) !important;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 24px rgba(196, 160, 80, 0.4) !important;
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.6 !important;
+}
+
+.auth-footer-text-luxury {
+  font-family: "Jost", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(240, 230, 200, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.auth-link-luxury {
+  color: #c4a050 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.auth-link-luxury:hover {
+  opacity: 0.75;
+  text-decoration: underline !important;
+}
+
+.auth-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 1.8rem;
+}
+
+.auth-step-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(196, 160, 80, 0.25);
+}
+
+.auth-step-dot.active {
+  background: #c4a050;
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* HERE IS CSS FOR ADD PRODUCT */
+.add-product-page {
+  min-height: 100vh;
+  background: #08080f;
+  padding: 7rem 1rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-product-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse,
+    rgba(196, 160, 80, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.ap-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 80, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 80, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.ap-card {
+  background: rgba(15, 15, 20, 0.95) !important;
+  border: 1px solid rgba(196, 160, 80, 0.18) !important;
+  border-radius: 18px !important;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.ap-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 160, 80, 0.5),
+    transparent
+  );
+}
+
+.ap-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(196, 160, 80, 0.1);
+}
+
+.ap-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a0a0f;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(196, 160, 80, 0.3);
+}
+
+.ap-page-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #f0e6c8;
+  margin: 0;
+  line-height: 1;
+}
+
+.ap-page-subtitle {
+  font-family: "Jost", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: rgba(240, 230, 200, 0.4);
+  margin: 4px 0 0;
+}
+
+.ap-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.7);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ap-label svg {
+  opacity: 0.6;
+}
+
+.ap-input {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(196, 160, 80, 0.18) !important;
+  border-radius: 8px !important;
+  color: #f0e6c8 !important;
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  padding: 0.7rem 1rem !important;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+  resize: none;
+}
+
+.ap-input::placeholder {
+  color: rgba(240, 230, 200, 0.18) !important;
+  font-weight: 300;
+}
+
+.ap-input:focus {
+  background: rgba(196, 160, 80, 0.04) !important;
+  border-color: rgba(196, 160, 80, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(196, 160, 80, 0.08) !important;
+  color: #f0e6c8 !important;
+  outline: none;
+}
+
+.ap-input option {
+  background: #0f0f14;
+  color: #f0e6c8;
+}
+
+/* Image Upload */
+.image-upload-zone {
+  border: 1px dashed rgba(196, 160, 80, 0.3);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  background: rgba(196, 160, 80, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+.image-upload-zone:hover {
+  border-color: rgba(196, 160, 80, 0.5);
+  background: rgba(196, 160, 80, 0.04);
+}
+
+.image-upload-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.image-preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(196, 160, 80, 0.2);
+}
+
+.upload-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(196, 160, 80, 0.08);
+  border: 1px solid rgba(196, 160, 80, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  color: rgba(196, 160, 80, 0.6);
+}
+
+.upload-hint {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(240, 230, 200, 0.35);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.upload-hint strong {
+  color: rgba(196, 160, 80, 0.65);
+  font-weight: 500;
+}
+
+/* Section divider */
+.ap-section-divider {
+  height: 1px;
+  background: rgba(196, 160, 80, 0.08);
+  margin: 0.5rem 0 1.5rem;
+}
+
+/* Submit */
+.ap-submit-btn {
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #c4a050, #e8c97a) !important;
+  border: none !important;
+  color: #0a0a0f !important;
+  padding: 0.8rem !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition:
+    opacity 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s !important;
+  box-shadow: 0 0 20px rgba(196, 160, 80, 0.25) !important;
+}
+
+.ap-submit-btn:hover:not(:disabled) {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 24px rgba(196, 160, 80, 0.4) !important;
+}
+
+.ap-submit-btn:disabled {
+  opacity: 0.55 !important;
+}
+
+.ap-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 576px) {
+  .ap-row-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* HERE IS CSS FOR ADMIN DASHBOARD */
+.admin-page {
+  min-height: 100vh;
+  background: #08080f;
+  padding: 6rem 0 4rem;
+  position: relative;
+}
+
+.admin-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 80, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 80, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.admin-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Page Header */
+.admin-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(196, 160, 80, 0.12);
+}
+
+.admin-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-title-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a0a0f;
+  font-size: 1.1rem;
+  box-shadow: 0 0 16px rgba(196, 160, 80, 0.3);
+  flex-shrink: 0;
+}
+
+.admin-page-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #f0e6c8;
+  margin: 0;
+  line-height: 1;
+}
+
+.admin-page-subtitle {
+  font-family: "Jost", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: rgba(240, 230, 200, 0.38);
+  margin: 4px 0 0;
+}
+
+.admin-add-btn {
+  font-family: "Jost", sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #c4a050, #e8c97a) !important;
+  border: none !important;
+  color: #0a0a0f !important;
+  padding: 0.6rem 1.3rem !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  box-shadow: 0 0 16px rgba(196, 160, 80, 0.25) !important;
+  transition:
+    opacity 0.2s,
+    transform 0.15s !important;
+}
+
+.admin-add-btn:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Stats Row */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.admin-stat-card {
+  background: rgba(15, 15, 20, 0.9);
+  border: 1px solid rgba(196, 160, 80, 0.14);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 160, 80, 0.35),
+    transparent
+  );
+}
+
+.stat-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.55);
+  margin-bottom: 0.4rem;
+}
+
+.stat-value {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0e6c8;
+  line-height: 1;
+}
+
+/* Table Wrapper */
+.admin-table-wrap {
+  background: rgba(15, 15, 20, 0.9);
+  border: 1px solid rgba(196, 160, 80, 0.14);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.admin-table thead tr {
+  border-bottom: 1px solid rgba(196, 160, 80, 0.12);
+}
+
+.admin-table thead th {
+  font-family: "Jost", sans-serif;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.6);
+  padding: 1rem 1.2rem;
+  text-align: left;
+  background: rgba(196, 160, 80, 0.03);
+  white-space: nowrap;
+}
+
+.admin-table thead th:last-child,
+.admin-table tbody td:last-child {
+  text-align: right;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid rgba(196, 160, 80, 0.07);
+  transition: background 0.15s ease;
+}
+
+.admin-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(196, 160, 80, 0.03);
+}
+
+.admin-table tbody td {
+  font-family: "Jost", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(240, 230, 200, 0.75);
+  padding: 1rem 1.2rem;
+  vertical-align: middle;
+}
+
+.product-thumb {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(196, 160, 80, 0.15);
+}
+
+.product-name-cell {
+  font-weight: 500;
+  color: #f0e6c8;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price-cell {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #c4a050;
+}
+
+.stock-cell {
+  color: rgba(240, 230, 200, 0.6);
+}
+
+.status-badge {
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.action-btn-edit {
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(196, 160, 80, 0.3);
+  color: rgba(196, 160, 80, 0.8);
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s;
+  margin-right: 6px;
+}
+
+.action-btn-edit:hover {
+  background: rgba(196, 160, 80, 0.1);
+  border-color: #c4a050;
+  color: #c4a050;
+}
+
+.action-btn-delete {
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: rgba(239, 68, 68, 0.7);
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s;
+}
+
+.action-btn-delete:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Empty */
+.admin-empty {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.admin-empty-icon {
+  color: rgba(196, 160, 80, 0.2);
+  margin-bottom: 1rem;
+}
+
+.admin-empty-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(240, 230, 200, 0.35);
+}
+
+/* Loading shimmer rows */
+.shimmer-row td {
+  padding: 1.1rem 1.2rem;
+}
+
+.shimmer-bar {
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(196, 160, 80, 0.06) 25%,
+    rgba(196, 160, 80, 0.12) 50%,
+    rgba(196, 160, 80, 0.06) 75%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-table thead th:nth-child(5),
+  .admin-table tbody td:nth-child(5) {
+    display: none;
+  }
+}
+
+/* HERE IS FOR PRODUCT DETAILS */
+.pd-page {
+  min-height: 100vh;
+  background: #08080f;
+  padding: 6rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 80, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 80, 0.022) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.pd-glow {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 160, 80, 0.055) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.pd-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Back button */
+.pd-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.6);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s;
+}
+
+.pd-back-btn:hover {
+  color: #c4a050;
+}
+
+/* Image column */
+.pd-img-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0c0c14;
+  border: 1px solid rgba(196, 160, 80, 0.14);
+  aspect-ratio: 4/5;
+}
+
+.pd-img-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    rgba(8, 8, 15, 0.5) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pd-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.pd-img-wrap:hover .pd-product-img {
+  transform: scale(1.04);
+}
+
+.pd-img-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  color: #0a0a0f;
+  padding: 5px 11px;
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(196, 160, 80, 0.3);
+}
+
+/* Info column */
+.pd-info {
+  padding-left: 1rem;
+}
+
+@media (max-width: 767px) {
+  .pd-info {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+}
+
+.pd-category-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.65);
+  background: rgba(196, 160, 80, 0.07);
+  border: 1px solid rgba(196, 160, 80, 0.18);
+  padding: 5px 13px;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+}
+
+.pd-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: #f0e6c8;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Rating row */
+.pd-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1.4rem;
+}
+
+.pd-star {
+  color: #c4a050;
+  font-size: 0.85rem;
+}
+.pd-star.empty {
+  color: rgba(196, 160, 80, 0.2);
+}
+
+.pd-rating-text {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(240, 230, 200, 0.4);
+  letter-spacing: 0.04em;
+}
+
+.pd-divider {
+  height: 1px;
+  background: rgba(196, 160, 80, 0.1);
+  margin: 1.4rem 0;
+}
+
+/* Price */
+.pd-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.pd-price {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #c4a050;
+  line-height: 1;
+}
+
+.pd-price-note {
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(240, 230, 200, 0.3);
+}
+
+/* Description */
+.pd-description {
+  font-family: "Jost", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240, 230, 200, 0.55);
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.02em;
+}
+
+/* Stock */
+.pd-stock-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.6rem;
+}
+
+.pd-stock-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 200, 0.4);
+}
+
+.pd-stock-badge-green {
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.22);
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.pd-stock-qty {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(240, 230, 200, 0.45);
+}
+
+/* Qty selector */
+.pd-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.pd-qty-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 200, 0.4);
+}
+
+.pd-qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(196, 160, 80, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pd-qty-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(196, 160, 80, 0.06);
+  border: none;
+  color: rgba(196, 160, 80, 0.7);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Jost", sans-serif;
+}
+
+.pd-qty-btn:hover {
+  background: rgba(196, 160, 80, 0.14);
+  color: #c4a050;
+}
+
+.pd-qty-num {
+  width: 44px;
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f0e6c8;
+  border-left: 1px solid rgba(196, 160, 80, 0.15);
+  border-right: 1px solid rgba(196, 160, 80, 0.15);
+  line-height: 36px;
+  user-select: none;
+}
+
+/* Cart button */
+.pd-cart-btn {
+  font-family: "Jost", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  color: #0a0a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(196, 160, 80, 0.25);
+  margin-bottom: 1rem;
+}
+
+.pd-cart-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(196, 160, 80, 0.4);
+}
+
+.pd-cart-btn.added {
+  background: linear-gradient(135deg, #4ade80, #22c55e) !important;
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.25);
+}
+
+/* Perks row */
+.pd-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.pd-perk {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(196, 160, 80, 0.04);
+  border: 1px solid rgba(196, 160, 80, 0.1);
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+}
+
+.pd-perk-icon {
+  color: rgba(196, 160, 80, 0.55);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.pd-perk-text {
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(240, 230, 200, 0.45);
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+
+/* Skeleton */
+.pd-skeleton {
+  animation: skPulse 1.5s infinite;
+}
+
+.sk-block {
+  background: rgba(196, 160, 80, 0.08);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+@keyframes skPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* HERE IS FOR UPDATE PRODUCT */
+.pd-page {
+  min-height: 100vh;
+  background: #08080f;
+  padding: 6rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 160, 80, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 160, 80, 0.022) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.pd-glow {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(196, 160, 80, 0.055) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.pd-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Back button */
+.pd-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.6);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s;
+}
+
+.pd-back-btn:hover {
+  color: #c4a050;
+}
+
+/* Image column */
+.pd-img-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0c0c14;
+  border: 1px solid rgba(196, 160, 80, 0.14);
+  aspect-ratio: 4/5;
+}
+
+.pd-img-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    rgba(8, 8, 15, 0.5) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pd-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.pd-img-wrap:hover .pd-product-img {
+  transform: scale(1.04);
+}
+
+.pd-img-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  color: #0a0a0f;
+  padding: 5px 11px;
+  border-radius: 5px;
+  box-shadow: 0 0 12px rgba(196, 160, 80, 0.3);
+}
+
+/* Info column */
+.pd-info {
+  padding-left: 1rem;
+}
+
+@media (max-width: 767px) {
+  .pd-info {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+}
+
+.pd-category-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Jost", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(196, 160, 80, 0.65);
+  background: rgba(196, 160, 80, 0.07);
+  border: 1px solid rgba(196, 160, 80, 0.18);
+  padding: 5px 13px;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+}
+
+.pd-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: #f0e6c8;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Rating row */
+.pd-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1.4rem;
+}
+
+.pd-star {
+  color: #c4a050;
+  font-size: 0.85rem;
+}
+.pd-star.empty {
+  color: rgba(196, 160, 80, 0.2);
+}
+
+.pd-rating-text {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(240, 230, 200, 0.4);
+  letter-spacing: 0.04em;
+}
+
+.pd-divider {
+  height: 1px;
+  background: rgba(196, 160, 80, 0.1);
+  margin: 1.4rem 0;
+}
+
+/* Price */
+.pd-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.pd-price {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #c4a050;
+  line-height: 1;
+}
+
+.pd-price-note {
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(240, 230, 200, 0.3);
+}
+
+/* Description */
+.pd-description {
+  font-family: "Jost", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240, 230, 200, 0.55);
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.02em;
+}
+
+/* Stock */
+.pd-stock-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.6rem;
+}
+
+.pd-stock-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 200, 0.4);
+}
+
+.pd-stock-badge-green {
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.22);
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.pd-stock-qty {
+  font-family: "Jost", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(240, 230, 200, 0.45);
+}
+
+/* Qty selector */
+.pd-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.pd-qty-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 230, 200, 0.4);
+}
+
+.pd-qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(196, 160, 80, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pd-qty-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(196, 160, 80, 0.06);
+  border: none;
+  color: rgba(196, 160, 80, 0.7);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Jost", sans-serif;
+}
+
+.pd-qty-btn:hover {
+  background: rgba(196, 160, 80, 0.14);
+  color: #c4a050;
+}
+
+.pd-qty-num {
+  width: 44px;
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f0e6c8;
+  border-left: 1px solid rgba(196, 160, 80, 0.15);
+  border-right: 1px solid rgba(196, 160, 80, 0.15);
+  line-height: 36px;
+  user-select: none;
+}
+
+/* Cart button */
+.pd-cart-btn {
+  font-family: "Jost", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #c4a050, #e8c97a);
+  color: #0a0a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(196, 160, 80, 0.25);
+  margin-bottom: 1rem;
+}
+
+.pd-cart-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(196, 160, 80, 0.4);
+}
+
+.pd-cart-btn.added {
+  background: linear-gradient(135deg, #4ade80, #22c55e) !important;
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.25);
+}
+
+/* Perks row */
+.pd-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.pd-perk {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(196, 160, 80, 0.04);
+  border: 1px solid rgba(196, 160, 80, 0.1);
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+}
+
+.pd-perk-icon {
+  color: rgba(196, 160, 80, 0.55);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.pd-perk-text {
+  font-family: "Jost", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(240, 230, 200, 0.45);
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+
+/* Skeleton */
+.pd-skeleton {
+  animation: skPulse 1.5s infinite;
+}
+
+.sk-block {
+  background: rgba(196, 160, 80, 0.08);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+@keyframes skPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
