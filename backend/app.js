@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-  if (req.headerSent) {
+  if (req.headersSent) {
     return next(error);
   }
   res

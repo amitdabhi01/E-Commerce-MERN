@@ -3,10 +3,7 @@ import express from "express";
 import productController from "../controller/productController.js";
 
 import validate from "../middlewares/Validate.js";
-import {
-  createProductSchema,
-  updateProductSchema,
-} from "../validators/productValidator.js";
+import { createProductSchema } from "../validators/productValidator.js";
 
 import auth from "../middlewares/Auth.js";
 import checkRole from "../middlewares/checkRole.js";
@@ -23,16 +20,15 @@ router.post(
   productController.add,
 );
 
-router.get("/getAll", auth, checkRole("admin"), productController.getAll);
+router.get("/getAll", productController.getAll);
 
-router.get("/:id", auth, checkRole("admin"), productController.getById);
+router.get("/:id", productController.getById);
 
 router.patch(
   "/update/:id",
   auth,
   checkRole("admin"),
   uploads.single("imageURL"),
-  validate(updateProductSchema),
   productController.update,
 );
 

@@ -100,7 +100,7 @@ const update = async (req, res, next) => {
       }
     }
 
-    const update = Object.keys(req.body);
+    const updates = Object.keys(req.body);
 
     let allowedFields = [
       "title",
@@ -108,16 +108,15 @@ const update = async (req, res, next) => {
       "price",
       "category",
       "stock",
-      "imageURL",
     ];
 
-    const isValid = update.every((filed) => allowedFields.includes(filed));
+    const isValid = updates.every((filed) => allowedFields.includes(filed));
 
     if (!isValid) {
       return next(new HttpError("Only allow field can be updated", 400));
     }
 
-    update.forEach((field) => (product[field] = req.body[field]));
+    updates.forEach((field) => (product[field] = req.body[field]));
 
     if (req.file) {
       if (product.cloudinaryId) {
