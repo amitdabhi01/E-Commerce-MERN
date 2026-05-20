@@ -29,6 +29,7 @@ router.patch(
   auth,
   checkRole("admin"),
   uploads.single("imageURL"),
+
   productController.update,
 );
 

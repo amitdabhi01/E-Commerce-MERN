@@ -102,6 +102,8 @@ const update = async (req, res, next) => {
 
     const updates = Object.keys(req.body);
 
+    console.log(req.body);
+
     let allowedFields = ["title", "description", "price", "category", "stock"];
 
     const isValid = updates.every((filed) => allowedFields.includes(filed));
@@ -117,14 +119,14 @@ const update = async (req, res, next) => {
         if (product.cloudinaryId && !product.cloudinaryId.startsWith("http")) {
           await cloudinary.uploader.destroy(product.cloudinaryId);
         }
-      } catch (cloudinaryId) {
+      } catch (cloudinaryError) {
         console.log(cloudinaryError.message);
       }
+
+      product.imageURL = req.file.path;
+
+      product.cloudinaryId = req.file.filename || req.file.public_id;
     }
-
-    product.imageURL = req.file.path;
-
-    product.cloudinaryId = req.file.filename || req.file.public_id;
 
     if (product.stock <= 0) {
       product.status = "Inactive";
