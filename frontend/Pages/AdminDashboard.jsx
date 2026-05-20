@@ -25,12 +25,24 @@ function AdminDashboard() {
     }
   };
 
+  const deleteProduct = async (id) => {
+    try {
+      await API.delete(`/product/delete/${id}`);
+
+      fetchProduct();
+
+      alert("Product Deleted Successfully");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container className="mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2>Admin Dashboard</h2>
 
-        <Button variant="dark" onClick={() => navigate("/add-product")}>
+        <Button variant="dark" onClick={() => navigate("/add")}>
           Add Product
         </Button>
       </div>
@@ -72,7 +84,7 @@ function AdminDashboard() {
                   variant="warning"
                   size="sm"
                   className="me-2"
-                  onClick={() => navigate(`/update-product/${product._id}`)}
+                  onClick={() => navigate(`/update/${product._id}`)}
                 >
                   Edit
                 </Button>

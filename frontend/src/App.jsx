@@ -10,6 +10,7 @@ import ProductDetails from "../Pages/ProductDetails.jsx";
 import ProtectedRoute from "../Components/ProtectedRoutes.jsx";
 import AdminDashboard from "../Pages/AdminDashboard.jsx";
 import AddProduct from "../Pages/AddProduct.jsx";
+import UpdateProduct from "../Pages/UpdateProduct.jsx";
 
 const App = () => {
   return (
@@ -35,10 +36,19 @@ const App = () => {
         />
 
         <Route
-          path="add-product"
+          path="add"
           element={
             <ProtectedRoute>
               <AddProduct />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/update/:id"
+          element={
+            <ProtectedRoute>
+              <UpdateProduct />
             </ProtectedRoute>
           }
         />
