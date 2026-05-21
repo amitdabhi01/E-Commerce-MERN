@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
-import {
-  FaShoppingCart,
-  FaArrowLeft,
-  FaBoxOpen,
-  FaLayerGroup,
-  FaStar,
-  FaShieldAlt,
-  FaTruck,
-} from "react-icons/fa";
+import { FaArrowLeft, FaSave, FaSpinner } from "react-icons/fa";
 import API from "../Services/api.js";
 
-function ProductDetails() {
+function EditProduct() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [product, setProduct] = useState(null);
-  const [added, setAdded] = useState(false);
-  const [qty, setQty] = useState(1);
+
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    price: "",
+    stock: "",
+    category: "",
+    imageURL: "", 
+    imageFile: null, 
+  });
 
   useEffect(() => {
     fetchProduct();
@@ -26,211 +30,235 @@ function ProductDetails() {
   const fetchProduct = async () => {
     try {
       const res = await API.get(`product/${id}`);
-      setProduct(res.data.product);
-    } catch (error) {
-      console.log(error);
+      const p = res.data.product;
+      setForm({
+        title: p.title || "",
+        description: p.description || "",
+        price: p.price || "",
+        stock: p.stock || "",
+        category: p.category || "",
+        imageURL: p.imageURL || "",
+      });
+    } catch (err) {
+      setError("Failed to load product.");
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleAddToCart = () => {
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
+  const handleChange = (e) => {
+    if (e.target.type === "file") {
+      const file = e.target.files[0];
+      setForm((prev) => ({
+        ...prev,
+        imageFile: file,
+        imageURL: file ? URL.createObjectURL(file) : prev.imageURL,
+      }));
+    } else {
+      setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    }
+    setError("");
+    setSuccess("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    setError("");
+    setSuccess("");
+    try {
+      const formData = new FormData();
+      formData.append("title", form.title);
+      formData.append("description", form.description);
+      formData.append("price", form.price);
+      formData.append("stock", form.stock);
+      formData.append("category", form.category);
+      if (form.imageFile) {
+        formData.append("imageURL", form.imageFile);
+      }
+
+      await API.patch(`product/update/${id}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      setSuccess("Product updated successfully!");
+      setTimeout(() => navigate("/"), 1500);
+    } catch (err) {
+      setError(err?.response?.data?.message || "Failed to update product.");
+      console.error(err);
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
-    <>
-      <div className="pd-page">
-        <div className="pd-grid-bg" />
-        <div className="pd-glow" />
+    <div className="pd-page mt-5 pt-5">
+      <div className="pd-grid-bg" />
+      <div className="pd-glow" />
 
-        <Container className="pd-inner">
-          <button className="pd-back-btn" onClick={() => navigate(-1)}>
-            <FaArrowLeft size={11} /> Back to products
-          </button>
+      <Container className="pd-inner" style={{ maxWidth: 720 }}>
+        {/* <button className="pd-back-btn" onClick={() => navigate("/admin")}>
+          <FaArrowLeft size={11} /> Back to Dashboard
+        </button> */}
 
-          {!product ? (
-            /* Skeleton loader */
-            <Row className="g-4 pd-skeleton">
-              <Col md={6}>
-                <div
-                  className="sk-block"
-                  style={{ height: 480, borderRadius: 16 }}
-                />
-              </Col>
-              <Col md={6} style={{ paddingLeft: "1.5rem" }}>
-                <div
-                  className="sk-block"
-                  style={{ height: 22, width: "40%" }}
-                />
-                <div
-                  className="sk-block"
-                  style={{ height: 48, width: "85%", marginTop: "1rem" }}
-                />
-                <div
-                  className="sk-block"
-                  style={{ height: 24, width: "30%", marginTop: "0.5rem" }}
-                />
-                <div
-                  className="sk-block"
-                  style={{ height: 80, marginTop: "1.5rem" }}
-                />
-                <div
-                  className="sk-block"
-                  style={{ height: 52, marginTop: "1rem" }}
-                />
-                <div
-                  className="sk-block"
-                  style={{ height: 52, marginTop: "0.75rem" }}
-                />
-              </Col>
-            </Row>
+        <div className="ep-card">
+          <h2 className="ep-heading">Edit Product</h2>
+          <p className="ep-subheading">Update the product details below</p>
+
+          {loading ? (
+            <div className="ep-loading">
+              <FaSpinner className="ep-spinner" />
+              <span>Loading product...</span>
+            </div>
           ) : (
-            <Row className="g-4 align-items-start">
-              {/* Image */}
-              <Col md={6}>
-                <div className="pd-img-wrap">
-                  <img
-                    src={product.imageURL}
-                    alt={product.title}
-                    className="pd-product-img"
+            <form onSubmit={handleSubmit} className="ep-form">
+              <Row className="g-3">
+
+                <Col md={12}>
+                  <label className="ep-label">Product Title</label>
+                  <input
+                    className="ep-input"
+                    type="text"
+                    name="title"
+                    value={form.title}
+                    onChange={handleChange}
+                    placeholder="e.g. Jordan Nike Sneakers for Men"
+                    required
                   />
-                  <div className="pd-img-badge">
-                    <FaStar size={9} /> Premium
-                  </div>
-                </div>
-              </Col>
+                </Col>
 
-              {/* Info */}
-              <Col md={6}>
-                <div className="pd-info">
-                  {/* Category */}
-                  <div className="pd-category-label">
-                    <FaLayerGroup size={10} />
-                    {product.category || "Premium Product"}
-                  </div>
+                <Col md={6}>
+                  <label className="ep-label">Category</label>
+                  <input
+                    className="ep-input"
+                    type="text"
+                    name="category"
+                    value={form.category}
+                    onChange={handleChange}
+                    placeholder="e.g. Shoes, Electronics"
+                  />
+                </Col>
 
-                  {/* Title */}
-                  <h1 className="pd-title">{product.title}</h1>
+     
+                <Col md={3}>
+                  <label className="ep-label">Price (₹)</label>
+                  <input
+                    className="ep-input"
+                    type="number"
+                    name="price"
+                    value={form.price}
+                    onChange={handleChange}
+                    placeholder="0"
+                    min="0"
+                    required
+                  />
+                </Col>
 
-                  {/* Rating */}
-                  <div className="pd-rating">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <FaStar
-                        key={i}
-                        className={`pd-star${i <= 4 ? "" : " empty"}`}
+                <Col md={3}>
+                  <label className="ep-label">Stock</label>
+                  <input
+                    className="ep-input"
+                    type="number"
+                    name="stock"
+                    value={form.stock}
+                    onChange={handleChange}
+                    placeholder="0"
+                    min="0"
+                    required
+                  />
+                </Col>
+
+
+                <Col md={12}>
+                  <label className="ep-label">Product Image</label>
+                  <div className="ep-file-wrap">
+                    {form.imageURL && (
+                      <div className="ep-img-preview-wrap">
+                        <img
+                          src={form.imageURL}
+                          alt="Preview"
+                          className="ep-img-preview"
+                          onError={(e) => (e.target.style.display = "none")}
+                        />
+                      </div>
+                    )}
+                    <label className="ep-file-label">
+                      <span className="ep-file-btn">
+                        {form.imageFile
+                          ? "✓ New image selected"
+                          : "Choose new image"}
+                      </span>
+                      <span className="ep-file-hint">
+                        {form.imageFile
+                          ? form.imageFile.name
+                          : "Leave empty to keep current image"}
+                      </span>
+                      <input
+                        type="file"
+                        name="imageURL"
+                        accept="image/*"
+                        onChange={handleChange}
+                        style={{ display: "none" }}
                       />
-                    ))}
-                    <span className="pd-rating-text ms-1">
-                      4.0 · 128 reviews
-                    </span>
+                    </label>
                   </div>
+                </Col>
 
-                  <div className="pd-divider" />
+                <Col md={12}>
+                  <label className="ep-label">Description</label>
+                  <textarea
+                    className="ep-input ep-textarea"
+                    name="description"
+                    value={form.description}
+                    onChange={handleChange}
+                    placeholder="Write a short product description..."
+                    rows={4}
+                  />
+                </Col>
 
-                  {/* Price */}
-                  <div className="pd-price-row">
-                    <span className="pd-price">
-                      ₹{Number(product.price).toLocaleString()}
-                    </span>
-                    <span className="pd-price-note">Incl. all taxes</span>
-                  </div>
+                {error && (
+                  <Col md={12}>
+                    <div className="ep-error">{error}</div>
+                  </Col>
+                )}
+                {success && (
+                  <Col md={12}>
+                    <div className="ep-success">{success}</div>
+                  </Col>
+                )}
 
-                  {/* Description */}
-                  <p className="pd-description">{product.description}</p>
-
-                  <div className="pd-divider" />
-
-                  {/* Stock */}
-                  <div className="pd-stock-row">
-                    <span className="pd-stock-label">Availability</span>
-                    {Number(product.stock) > 0 ? (
+                <Col md={12} className="ep-actions">
+                  <button
+                    type="button"
+                    className="ep-cancel-btn"
+                    onClick={() => navigate("/admin")}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="pd-cart-btn"
+                    disabled={saving}
+                    style={{ minWidth: 180 }}
+                  >
+                    {saving ? (
                       <>
-                        <span className="pd-stock-badge-green">In Stock</span>
-                        <span className="pd-stock-qty">
-                          {product.stock} units left
-                        </span>
+                        <FaSpinner className="ep-spinner-sm" /> Saving...
                       </>
                     ) : (
-                      <span
-                        style={{
-                          color: "#ef4444",
-                          fontSize: "0.72rem",
-                          fontFamily: "'Jost',sans-serif",
-                          fontWeight: 600,
-                          letterSpacing: "0.1em",
-                          textTransform: "uppercase",
-                        }}
-                      >
-                        Out of Stock
-                      </span>
+                      <>
+                        <FaSave size={13} /> Save Changes
+                      </>
                     )}
-                  </div>
-
-                  {/* Qty */}
-                  <div className="pd-qty-row">
-                    <span className="pd-qty-label">Qty</span>
-                    <div className="pd-qty-control">
-                      <button
-                        className="pd-qty-btn"
-                        onClick={() => setQty((q) => Math.max(1, q - 1))}
-                      >
-                        −
-                      </button>
-                      <span className="pd-qty-num">{qty}</span>
-                      <button
-                        className="pd-qty-btn"
-                        onClick={() =>
-                          setQty((q) => Math.min(Number(product.stock), q + 1))
-                        }
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Add to Cart */}
-                  <button
-                    className={`pd-cart-btn${added ? " added" : ""}`}
-                    onClick={handleAddToCart}
-                    disabled={Number(product.stock) === 0}
-                  >
-                    <FaShoppingCart size={14} />
-                    {added ? "Added to Cart!" : "Add to Cart"}
                   </button>
-
-                  {/* Perks */}
-                  <div className="pd-perks">
-                    <div className="pd-perk">
-                      <FaTruck className="pd-perk-icon" />
-                      <span className="pd-perk-text">
-                        Free delivery on orders over ₹499
-                      </span>
-                    </div>
-                    <div className="pd-perk">
-                      <FaShieldAlt className="pd-perk-icon" />
-                      <span className="pd-perk-text">
-                        1-year warranty included
-                      </span>
-                    </div>
-                    <div className="pd-perk">
-                      <FaBoxOpen className="pd-perk-icon" />
-                      <span className="pd-perk-text">Easy 30-day returns</span>
-                    </div>
-                    <div className="pd-perk">
-                      <FaStar className="pd-perk-icon" />
-                      <span className="pd-perk-text">
-                        Authenticity guaranteed
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </Row>
+                </Col>
+              </Row>
+            </form>
           )}
-        </Container>
-      </div>
-    </>
+        </div>
+      </Container>
+    </div>
   );
 }
 
-export default ProductDetails;
+export default EditProduct;

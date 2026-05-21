@@ -70,7 +70,6 @@ function AddProduct() {
         <Container>
           <Card className="ap-card border-0">
             <Card.Body className="p-4 p-md-5">
-              {/* Header */}
               <div className="ap-header">
                 <div className="ap-icon-wrap">
                   <FaBoxOpen />
@@ -84,7 +83,6 @@ function AddProduct() {
               </div>
 
               <Form onSubmit={handleSubmit}>
-                {/* Title */}
                 <Form.Group className="mb-4">
                   <Form.Label className="ap-label">
                     <FaTag size={11} /> Product Title
@@ -100,7 +98,6 @@ function AddProduct() {
                   />
                 </Form.Group>
 
-                {/* Description */}
                 <Form.Group className="mb-4">
                   <Form.Label className="ap-label">
                     <FaAlignLeft size={11} /> Description
@@ -117,7 +114,6 @@ function AddProduct() {
                   />
                 </Form.Group>
 
-                {/* Price & Stock */}
                 <div className="ap-row-grid mb-4">
                   <Form.Group>
                     <Form.Label className="ap-label">
@@ -149,7 +145,6 @@ function AddProduct() {
                   </Form.Group>
                 </div>
 
-                {/* Category */}
                 <Form.Group className="mb-4">
                   <Form.Label className="ap-label">
                     <FaLayerGroup size={11} /> Category
@@ -169,8 +164,6 @@ function AddProduct() {
                     ))}
                   </Form.Select>
                 </Form.Group>
-
-                {/* Image Upload */}
                 <Form.Group className="mb-4">
                   <Form.Label className="ap-label">
                     <FaImage size={11} /> Product Image

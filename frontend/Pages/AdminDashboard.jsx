@@ -52,7 +52,6 @@ function AdminDashboard() {
       <div className="admin-page">
         <div className="admin-grid-bg" />
         <Container className="admin-inner">
-          {/* Header */}
           <div className="admin-page-header">
             <div className="admin-title-wrap">
               <div className="admin-title-icon">
@@ -71,7 +70,6 @@ function AdminDashboard() {
             </button>
           </div>
 
-          {/* Stats */}
           <div className="admin-stats">
             <div className="admin-stat-card">
               <p className="stat-label">Total Products</p>

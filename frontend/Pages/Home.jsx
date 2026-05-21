@@ -68,8 +68,7 @@ const Home = () => {
           </div>
         </Container>
       </div>
-
-      {/* PRODUCTS */}
+      
       <div className="products-section">
         <Container>
           <div className="section-header d-flex flex-column flex-sm-row justify-content-between align-items-sm-end gap-3">
