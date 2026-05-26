@@ -3,8 +3,8 @@
 ````md
 # 🛒 E-Commerce MERN Application
 
-A full-stack E-Commerce web application built using the MERN Stack (MongoDB, Express.js, React.js, Node.js).  
-This project provides a modern online shopping experience with authentication, product management, cart functionality, and secure backend APIs.
+A full-stack E-Commerce web application built using the MERN Stack <br/> (MongoDB, Express.js, React.js, Node.js).<br/>
+This project provides a modern online shopping experience with <br/> authentication, product management, cart functionality, and secure backend APIs.
 
 ---
 
