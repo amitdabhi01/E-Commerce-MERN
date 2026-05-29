@@ -155,28 +155,6 @@ npm start
 
 ## 📸 Screenshots
 
-### 🏠 Home Page
-
-Add Screenshot Here
-
-### 🛍️ Product Page
-
-Add Screenshot Here
-
-### 🛒 Cart Page
-
-Add Screenshot Here
-
-### 🔐 Login/Register
-
-Add Screenshot Here
-
-### ⚙️ Admin Dashboard
-
-Add Screenshot Here
-
----
-
 ## 📡 API Endpoints
 
 ### Auth Routes
