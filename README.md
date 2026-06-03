@@ -75,7 +75,7 @@ E-Commerce-MERN/
 │   ├── public/
 │   ├── src/
 │   └── package.json
-│ 
+│ Backend
 ├── server/                 # Backend
 │   ├── controllers/
 │   ├── middleware/
