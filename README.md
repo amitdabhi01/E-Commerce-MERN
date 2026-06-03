@@ -70,12 +70,12 @@ Backend API: Add Your Backend URL Here
 
 ```bash
 E-Commerce-MERN/
-│
+│ Frontend
 ├── client/                 # Frontend
 │   ├── public/
 │   ├── src/
 │   └── package.json
-│
+│ 
 ├── server/                 # Backend
 │   ├── controllers/
 │   ├── middleware/
